@@ -29,3 +29,6 @@ const sess = {
 };
 
 app.use(session(sess));
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
