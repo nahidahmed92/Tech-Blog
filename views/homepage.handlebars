@@ -1,29 +1,28 @@
-<!-- Loop over each object in the blogposts array -->
-{{#each blogposts as |blogpost|}}
-  <div class='row mb-4 project'>
-    <div class='col-md-5'>
-      <h2>
-        <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-        {{{get_emoji}}}
-        <a href='/project/{{blogpost.id}}'>{{blogpost.name}}</a>
-      </h2>
-      <p>
-        <span for='img' aria-label='money'>💲</span>
-        <!-- Pass needed_funding value to the helper function -->
-        <span class='dollar-amount'>{{format_amount
-            blogpost.needed_funding
-          }}</span>
-        needed!
-      </p>
-      <p>Posted by
-        {{blogpost.user.name}}
-        on
-        {{format_date blogpost.date_created}}</p>
-    </div>
-    <div class='col-md-7'>
-      <p>
-        {{blogpost.post}}
-      </p>
-    </div>
-  </div>
-{{/each}}
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Tech Blog</title>
+  </head>
+  <body>
+    <h1>Welcome to Tech Blog</h1>
+    {{!-- {{#if currentUser}} --}}
+    <p>Hello, {{blog.user.name}}!</p>
+    {{!-- {{else}} --}}
+    {{!-- {{/if}} --}}
+    <h2>Latest Blog Posts</h2>
+    {{#each blogs as |blog|}}
+      <div>
+        <h3>{{blog.title}}</h3>
+        <p>{{blog.post}}</p>
+        <p>Published by
+          {{blog.user.name}}
+          on
+          {{format_date blog.date_created}}</p>
+        <a href='/post/{{id}}'>Read more</a>
+      </div>
+    {{else}}
+      <p>No blog posts found.</p>
+    {{/each}}
+  </body>
+</html>
