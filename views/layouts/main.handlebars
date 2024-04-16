@@ -36,6 +36,9 @@
 
       </footer>
     </div>
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+      <script src='../../public/js/logout.js'></script>
+    {{/if}}
   </body>
-
 </html>
