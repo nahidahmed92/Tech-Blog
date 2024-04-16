@@ -9,17 +9,30 @@
   </head>
 
   <body>
+    <div class='flex-column justify-space-around'>
+      <header class='display-flex justify-space-between align-center p-2'>
+        <nav>
+          <!-- Conditionally render login or logout links -->
+          {{#if logged_in}}
+            <a class='no-button' href='/login'>Home</a>
+            <a class='no-button' href='/dashboard'>Dashboard</a>
+            <a class='no-button' href='/login'>Login</a>
+            <button class='no-button' id='logout'>Logout</button>
+          {{else}}
+            <a class='no-button' href='/login'>Home</a>
+            <a class='no-button' href='/dashboard'>Dashboard</a>
+            <a class='no-button' href='/login'>Login</a>
+          {{/if}}
+        </nav>
 
-    <header>
+      </header>
+      <main>
 
-    </header>
-    <main>
+      </main>
+      <footer>
 
-    </main>
-    <footer>
-
-    </footer>
-
+      </footer>
+    </div>
   </body>
 
 </html>
