@@ -20,7 +20,7 @@ router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({
       where: {
-        email: req.body.email,
+        username: req.body.username,
       },
     });
     if (!userData) {
@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
 router.post('/signup', async (req, res) => {
   try {
     const userData = await User.create({
-      name: req.body.name,
+      username: req.body.username,
       email: req.body.email,
       password: req.body.password,
     });
