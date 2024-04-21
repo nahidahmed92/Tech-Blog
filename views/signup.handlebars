@@ -1,42 +1,39 @@
-<html lang='en'>
-  <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <title>Sign Up</title>
-  </head>
-  <body>
-    <h1>Sign Up</h1>
-    <form class='signup-form'>
-      <input
-        type='text'
-        name='name'
-        placeholder='Full Name'
-        id='name-signup'
-        required
-      />
-      <br />
-      <br />
-      <input
-        type='email'
-        name='email'
-        placeholder='Email'
-        id='email-signup'
-        required
-      />
-      <br />
-      <br />
-      <input
-        type='password'
-        name='password'
-        placeholder='Password'
-        id='password-signup'
-        required
-      />
-      <br />
-      <br />
-      <button type='submit'>Sign Up</button>
-    </form>
-    <p>Already have an account? <a href='/login'>Login</a></p>
-    <script src='./js/signup.js'></script>
-  </body>
-</html>
+<h1>Sign Up</h1>
+<form class='signup-form'>
+  <div class='mb-3'>
+    <input
+      aria-describedby='usernameHelpBlock'
+      class='form-control'
+      id='signup-username'
+      placeholder='Username'
+      type='text'
+    />
+  </div>
+  <div class='mb-3'>
+    <input
+      aria-describedby='emailHelpBlock'
+      class='form-control'
+      id='signup-email'
+      placeholder='Email'
+      type='email'
+    />
+  </div>
+  <div class='mb-3'>
+    <input
+      aria-describedby='passwordHelpBlock'
+      class='form-control'
+      id='signup-password'
+      placeholder='Password'
+      type='password'
+    />
+  </div>
+  <button class='btn btn-dark text-light' style='width: 100%' type='submit'>
+    Sign Up
+  </button>
+</form>
+<p>
+  Already have an account?
+  <a class='link-opacity-100 text-dark' href='/login'>Login</a>
+</p>
+
+<script src='./js/signup.js'></script>
