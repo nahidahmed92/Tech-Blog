@@ -12,13 +12,13 @@
       <h5 class='card-title mb-0'>{{blog.title}}</h5>
       <p class='mb-0 ml-3'>
         Published by
-        {{blog.user.name}}
+        {{blog.user.username}}
         on
         {{format_date blog.date_created}}
       </p>
     </div>
     <div class='card-body bg-secondary'>
-      <p class='card-text'>{{blog.post}}</p>
+      <p class='card-text'>{{blog.content}}</p>
       <div class='d-flex justify-content-end'>
         <a class='btn btn-dark text-light mx-2' href='/'>Comment</a>
         <a class='btn btn-dark text-light' href='/dashboard'>Read More</a>
