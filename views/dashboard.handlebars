@@ -1,0 +1,36 @@
+<h1>Dashboard</h1>
+<h2>Your Blog Posts</h2>
+{{#each userPosts}}
+  <div>
+    <h3>{{title}}</h3>
+    <p>{{content}}</p>
+    <p>Published on {{createdAt}}</p>
+    <a href='/post/{{id}}'>Edit</a>
+    |
+    <a href='/delete/{{id}}'>Delete</a>
+  </div>
+{{else}}
+  <p>No blog posts found.</p>
+{{/each}}
+<div class='card border border-dark border-2'>
+  <h5 class='card-header bg-dark text-light'>Create New Post</h5>
+  <div class='card-body bg-secondary'>
+    <div class='mb-3'>
+      <label for='dashboard-title' class='form-label'>Title</label>
+      <input type='text' class='form-control' id='dashboard-title' />
+    </div>
+    <div class='mb-3'>
+      <label for='dashboard-content' class='form-label'>
+        Content
+      </label>
+      <textarea class='form-control' id='dashboard-content' rows='3'>
+      </textarea>
+    </div>
+    <a href='#' class='btn btn-dark text-light w-100'>Create</a>
+  </div>
+</div>
+<div class='fixed-bottom mb-3 d-flex justify-content-center'>
+  <button class='btn btn-dark text-light align-content-' type='submit'>
+    + New Post
+  </button>
+</div>
