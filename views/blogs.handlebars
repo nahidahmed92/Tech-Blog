@@ -15,11 +15,7 @@
   <div class='card-body bg-secondary'>
     <p class='card-text'>{{blogs.content}}</p>
     <div class='d-flex justify-content-end'>
-      <a
-        class='btn btn-dark text-light mx-2'
-        {{!-- href='/blogs/{{blogs.id}}/comments' --}}
-        id='commentBtn'
-      >Comment</a>
+      <a class='btn btn-dark text-light mx-2' id='commentBtn'>Comment</a>
     </div>
   </div>
 </div>
@@ -60,13 +56,12 @@
           </label>
           <textarea class='form-control' id='commentInput' rows='3'></textarea>
         </div>
-        <a href='#' class='btn btn-dark text-light w-100' id='submitBtn'>
+        <a class='btn btn-dark text-light w-100' id='submitBtn'>
           Submit
         </a>
       </form>
     </div>
   </div>
-
 {{/if}}
 
 <script src='/js/comment.js'></script>
