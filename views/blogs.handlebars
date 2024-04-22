@@ -15,7 +15,11 @@
   <div class='card-body bg-secondary'>
     <p class='card-text'>{{blogs.content}}</p>
     <div class='d-flex justify-content-end'>
-      <a class='btn btn-dark text-light mx-2' id='commentBtn'>Comment</a>
+      {{#if logged_in}}
+        <a class='btn btn-dark text-light mx-2' id='commentBtn'>Leave Comment</a>
+      {{else}}
+        <a class='btn btn-dark text-light mx-2' href='/login'>Leave Comment</a>
+      {{/if}}
     </div>
   </div>
 </div>
