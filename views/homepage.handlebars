@@ -14,13 +14,19 @@
         Published by
         {{blog.user.username}}
         on
-        {{format_date blog.date_created}}
+        {{format_date blog.createdAt}}
       </p>
     </div>
     <div class='card-body bg-secondary'>
       <p class='card-text'>{{blog.content}}</p>
       <div class='d-flex justify-content-end'>
-        <a class='btn btn-dark text-light mx-2' href='/'>Comment</a>
+        <a
+          class='btn btn-dark text-light mx-2'
+          href='/blogs/{{blog.id}}/'
+          id='comment'
+        >
+          Comment
+        </a>
         <a class='btn btn-dark text-light' href='/dashboard'>Read More</a>
       </div>
     </div>
