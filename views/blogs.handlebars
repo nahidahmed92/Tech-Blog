@@ -1,0 +1,72 @@
+<h2>Comments</h2>
+
+<div class='card d-flex border border-dark border-2'>
+  <div
+    class='card-header d-flex justify-content-between align-items-center bg-dark text-light'
+  >
+    <h5 class='card-title mb-0'>{{blogs.title}}</h5>
+    <p class='mb-0 ml-3'>
+      Published by
+      {{blogs.user.username}}
+      on
+      {{format_date blogs.createdAt}}
+    </p>
+  </div>
+  <div class='card-body bg-secondary'>
+    <p class='card-text'>{{blogs.content}}</p>
+    <div class='d-flex justify-content-end'>
+      <a
+        class='btn btn-dark text-light mx-2'
+        {{!-- href='/blogs/{{blogs.id}}/comments' --}}
+        id='commentBtn'
+      >Comment</a>
+    </div>
+  </div>
+</div>
+
+{{#each blogs.comments as |comment|}}
+  <br />
+  <div class='card d-flex border border-dark border-2'>
+    <div
+      class='card-header d-flex justify-content-between align-items-center bg-dark text-light'
+    >
+      <h5 class='card-title mb-0'></h5>
+      <br />
+    </div>
+    <div class='card-body bg-secondary'>
+      <p class='card-text'>{{comment.comment}}</p>
+      <p>— {{comment.user.username}}, {{format_date comment.createdAt}}</p>
+      <div class='d-flex justify-content-end'>
+      </div>
+    </div>
+  </div>
+{{else}}
+  <p>No comments yet.</p>
+{{/each}}
+
+{{#if logged_in}}
+  <br />
+  <div
+    class='card border border-dark border-2'
+    id='commentContainer'
+    style='display: none;'
+  >
+    <h5 class='card-header bg-dark text-light'>Add Comment</h5>
+    <div class='card-body bg-secondary'>
+      <form class='comment-form' action='/comment/{{post.id}}' method='POST'>
+        <div class='mb-3'>
+          <label for='commentInput' class='form-label'>
+            Comment
+          </label>
+          <textarea class='form-control' id='commentInput' rows='3'></textarea>
+        </div>
+        <a href='#' class='btn btn-dark text-light w-100' id='submitBtn'>
+          Submit
+        </a>
+      </form>
+    </div>
+  </div>
+
+{{/if}}
+
+<script src='/js/comment.js'></script>
