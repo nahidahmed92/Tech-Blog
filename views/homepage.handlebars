@@ -1,9 +1,9 @@
-<h1>Welcome to Tech Blog</h1>
-{{!-- {{#if currentUser}} --}}
-<p>Hello, {{blog.user.username}}!</p>
-{{!-- {{else}} --}}
-{{!-- {{/if}} --}}
-<h2>Latest Blog Posts</h2>
+<h2>Welcome to Tech Blog</h2>
+{{#if logged_in}}
+  <p>Welcome back, {{username}}!</p>
+  {{!-- {{else}} --}}
+{{/if}}
+<h4>Latest Blog Posts</h4>
 {{#each blogs as |blog|}}
   <div class='card d-flex border border-dark border-2'>
     <div
