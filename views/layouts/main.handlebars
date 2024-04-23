@@ -13,10 +13,10 @@
     <link rel='stylesheet' href='css/style.css' />
   </head>
 
-  <body class="bg-secondary">
+  <body class='bg-secondary'>
     <div class='flex-column justify-space-around'>
       <header class='display-flex justify-space-between align-center p-2'>
-        <nav class='navbar navbar-expand-lg bg-dark'>
+        <nav class='navbar navbar-expand-lg bg-dark fixed-top'>
           <div class='container-fluid'>
             <a class='navbar-brand text-light' href='/'>
               {{> logo}}
@@ -30,32 +30,39 @@
                     aria-current='page'
                     href='/'
                   >
-                  Home
+                    Home
                   </a>
                 </li>
                 <li class='nav-item'>
                   <a class='nav-link text-light' href='/dashboard'>Dashboard</a>
                 </li>
                 {{#if logged_in}}
-                <li class='nav-item'>
-                  <a class='nav-link text-light' href="/" id="logout">Logout</a>
-                </li>
+                  <li class='nav-item'>
+                    <a
+                      class='nav-link text-light'
+                      href='/'
+                      id='logout'
+                    >Logout</a>
+                  </li>
                 {{else}}
-                <li class='nav-item'>
-                  <a class='nav-link text-light' href='/login'>Login</a>
-                </li>
+                  <li class='nav-item'>
+                    <a class='nav-link text-light' href='/login'>Login</a>
+                  </li>
                 {{/if}}
               </ul>
             </div>
           </div>
         </nav>
       </header>
-      <main class='container container-fluid mt-5'>
+      <main class='container container-fluid mt-5 pb-5'>
         <!-- Render the sub layout -->
         {{{body}}}
       </main>
-      <footer>
-
+      <footer class='fixed-bottom mt-auto py-3 bg-dark'>
+        <div class='container text-center'>
+          <span class='text-light'>© 2024 Designed and Developed by Ahmed
+            Innovations</span>
+        </div>
       </footer>
     </div>
     <!-- Render script for logged in users only -->
