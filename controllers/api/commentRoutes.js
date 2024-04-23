@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 
 router.post('/:id', async (req, res) => {
-  console.log('req.body: ', req.body);
   try {
     // retrieve blog post ID from request parameters
     const blogPostId = req.params.id;
