@@ -34,7 +34,7 @@
       <br />
     </div>
     <div class='card-body bg-secondary'>
-      <p class='card-text'>{{comment.comment}}</p>
+      <p class='card-text' id='{{comment.id}}'>{{comment.comment}}</p>
       <p>— {{comment.user.username}}, {{format_date comment.createdAt}}</p>
       <div class='d-flex justify-content-end'>
       </div>
@@ -53,7 +53,7 @@
   >
     <h5 class='card-header bg-dark text-light'>Add Comment</h5>
     <div class='card-body bg-secondary'>
-      <form class='comment-form' action='/comment/{{post.id}}' method='POST'>
+      <form class='comment-form'>
         <div class='mb-3'>
           <label for='commentInput' class='form-label'>
             Comment

@@ -1,0 +1,44 @@
+<h2>Dashboard</h2>
+<h4>Your Blog Posts</h4>
+
+<div class='card d-flex border border-dark border-2' id='dashboard-blog'>
+  <div
+    class='card-header d-flex justify-content-between align-items-center bg-dark text-light'
+  >
+    <h5 class='card-title mb-0'>Edit Post</h5>
+  </div>
+  <div class='card-body bg-secondary'>
+    <form class='comment-form'>
+      <div class='mb-3'>
+        <label for='dashboard-title' class='form-label'>
+          Title
+        </label>
+        <textarea
+          class='form-control'
+          id='dashboard-title'
+          rows='1'
+        >{{blogs.title}}</textarea>
+      </div>
+      <div class='mb-3'>
+        <label for='dashboard-content' class='form-label'>
+          Content
+        </label>
+        <textarea
+          class='form-control'
+          id='dashboard-content'
+          rows='3'
+        >{{blogs.content}}</textarea>
+      </div>
+      <div class='d-flex flex-row'>
+        <a class='btn btn-dark text-light w-100 me-2' id='updateBtn'>
+          Update
+        </a>
+        <a class='btn btn-dark text-light w-100 ms-2' id='deleteBtn'>
+          Delete
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src='/js/dashboard.js'></script>

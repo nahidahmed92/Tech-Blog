@@ -80,6 +80,21 @@ router.get('/dashboard', async (req, res) => {
   }
 });
 
+router.get('/dashboard/:id', async (req, res) => {
+  try {
+    const blogPostData = await BlogPost.findByPk(req.params.id, {
+      include: [{ model: User }],
+    });
+    const blogs = blogPostData.get({ plain: true });
+    res.render('dashboard-edit', {
+      blogs,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {

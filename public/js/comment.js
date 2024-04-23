@@ -4,10 +4,10 @@ const submitBtn = document.querySelector('#submitBtn');
 const commentFormHandler = async (event) => {
   event.preventDefault();
   const commentContainer = document.querySelector('#commentContainer');
-  const comment = document.querySelector('#commentInput').value.trim();
 
   if (commentContainer.style.display === 'none') {
     commentContainer.style.display = 'block';
+    commentContainer.scrollIntoView({ behavior: 'smooth' });
   } else if (submitBtn) {
     commentContainer.style.display = 'none';
   }
@@ -16,7 +16,6 @@ const commentFormHandler = async (event) => {
 const submitCommentHandler = async () => {
   const comment = document.querySelector('#commentInput').value.trim();
   const blogPostId = getBlogPostIdFromURL();
-  console.log('Blog Post ID:', blogPostId);
 
   try {
     const response = await fetch(`/api/comment/${blogPostId}`, {
