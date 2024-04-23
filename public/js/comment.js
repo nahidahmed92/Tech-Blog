@@ -4,7 +4,6 @@ const submitBtn = document.querySelector('#submitBtn');
 const commentFormHandler = async (event) => {
   event.preventDefault();
   const commentContainer = document.querySelector('#commentContainer');
-  const comment = document.querySelector('#commentInput').value.trim();
 
   if (commentContainer.style.display === 'none') {
     commentContainer.style.display = 'block';
