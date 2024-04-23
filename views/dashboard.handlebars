@@ -2,21 +2,15 @@
 <h4>Your Blog Posts</h4>
 
 {{#each blogs as |blog|}}
-  {{!-- <div>
-    <h3>{{title}}</h3>
-    <p>{{content}}</p>
-    <p>Published on {{createdAt}}</p>
-    <a href='/blogs/{{id}}'>Edit</a>
-    |
-    <a href='/delete/{{id}}'>Delete</a>
-  </div> --}}
-  <div class='card d-flex border border-dark border-2'>
-    <div
-      class='card-header d-flex justify-content-between align-items-center bg-dark text-light'
-    >
-      <h5 class='card-title mb-0'>{{title}}</h5>
-      <p class='mb-0 ml-3'>{{format_date blog.createdAt}}</p>
-    </div>
+  <div class='card d-flex border border-dark border-2' id='dashboard-blog'>
+    <a class='plain-link' href='dashboard/{{blog.id}}'>
+      <div
+        class='card-header d-flex justify-content-between align-items-center bg-dark text-light'
+      >
+        <h5 class='card-title mb-0'>{{title}}</h5>
+        <p class='mb-0 ml-3'>{{format_date blog.createdAt}}</p>
+      </div>
+    </a>
   </div>
   <br />
 {{else}}
