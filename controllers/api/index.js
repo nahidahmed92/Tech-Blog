@@ -5,7 +5,7 @@ const dashboardRoutes = require('./dashboardRoutes.js');
 const commentRoutes = require('./commentRoutes.js');
 
 router.use('/users', userRoutes);
-// router.use('/blogposts', blogPostRoutes);
+router.use('/blogposts', blogPostRoutes);
 router.use('/dashboard', dashboardRoutes);
 router.use('/comment', commentRoutes);
 
