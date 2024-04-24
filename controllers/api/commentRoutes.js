@@ -17,6 +17,22 @@ router.post('/:id', async (req, res) => {
     });
 
     // redirect or send a response
+    res.redirect(`/blogs/${blogPostId}`);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const comment = await Comment.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    // redirect or send a response
     res.redirect(`/blogs/${blogPostId}/`);
   } catch (err) {
     console.error(err);

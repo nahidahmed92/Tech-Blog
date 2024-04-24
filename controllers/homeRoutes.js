@@ -55,16 +55,20 @@ router.get('/blogs/:id', async (req, res) => {
   }
 });
 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    console.log(req.session.userId, ', ', req.session.username);
+    // Get all post and JOIN with user data with id and username
     const blogPostData = await BlogPost.findAll({
       include: [
         {
           model: User,
-          attributes: ['username'],
+          attributes: ['id', 'username'],
         },
       ],
+      where: {
+        userId: req.session.userId,
+      },
     });
 
     // Serialize data so the template can read it
@@ -80,12 +84,27 @@ router.get('/dashboard', async (req, res) => {
   }
 });
 
-router.get('/dashboard/:id', async (req, res) => {
+router.get('/dashboard/:id', withAuth, async (req, res) => {
   try {
     const blogPostData = await BlogPost.findByPk(req.params.id, {
-      include: [{ model: User }],
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'username'],
+        },
+      ],
+      where: {
+        userId: req.session.userId,
+      },
     });
+
+    if (!blogPostData) {
+      // If the blog post doesn't exist or doesn't belong to the current user
+      return res.redirect('/login'); // Redirect to login page
+    }
+
     const blogs = blogPostData.get({ plain: true });
+
     res.render('dashboard-edit', {
       blogs,
       logged_in: req.session.logged_in,
