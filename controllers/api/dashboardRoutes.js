@@ -40,26 +40,31 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     // Find the blog post to be deleted
-    const blogPost = await BlogPost.findByPk(req.params.id);
+    const blogPost = await BlogPost.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
 
     if (!blogPost) {
       return res.status(404).json({ message: 'Blog post not found' });
     }
 
-    // delete all comments with blogId
-    await Comment.destroy({
-      where: {
-        blogId: req.params.id,
-      },
-    });
-
-    await blogPost.destroy();
-
     res.status(200).json({
       message: 'Posts and associated Comments have been deleted.',
     });
   } catch (error) {
-    res.status(500).json(err);
+    res.status(500).json(error);
+  }
+});
+
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
   }
 });
 
